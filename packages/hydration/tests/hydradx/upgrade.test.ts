@@ -13,7 +13,9 @@ describe('hydraDX upgrade', async () => {
   it('Upgrade works', async () => {
     const curr = process.cwd()
     console.log(`Current directory: ${curr}`)
-    const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${curr}/packages/hydration/tests/hydradx/256.wasm`
+    // const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${curr}/packages/hydration/tests/hydradx/256.wasm`
+    const upgradePath = `${curr}/packages/hydration/tests/hydradx/256.wasm`
+
     console.log('Upgrade path: ' + upgradePath)
     await performUpgrade(hydraDXClient, upgradePath)
 
