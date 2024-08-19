@@ -1,5 +1,6 @@
 import { defaultAccounts } from '../defaultAccounts.js'
 import { defineChain } from '../defineChain.js'
+import { testingPairs } from '@acala-network/chopsticks-testing'
 
 const custom = {
   hydraDX: {
@@ -14,6 +15,8 @@ const custom = {
   },
 }
 
+const { alice } = testingPairs()
+
 const getInitStorages = (config: typeof custom.hydraDX | typeof custom.basilisk) => ({
   System: {
     Account: [[[defaultAccounts.alice.address], { providers: 1, data: { free: 10n ** 18n } }]],
@@ -23,6 +26,12 @@ const getInitStorages = (config: typeof custom.hydraDX | typeof custom.basilisk)
       [[defaultAccounts.alice.address, config.relayToken], { free: 1000 * 1e12 }],
       [[defaultAccounts.alice.address, config.dai], { free: 100n * 10n ** 18n }],
     ],
+  },
+  Council: {
+    members: [defaultAccounts.alice.address],
+  },
+  TechnicalCommittee: {
+    members: [defaultAccounts.alice.address],
   },
 })
 
