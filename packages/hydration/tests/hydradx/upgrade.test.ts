@@ -11,9 +11,9 @@ describe('hydraDX upgrade', async () => {
   const [hydraDXClient] = await setupNetworks(hydraDX)
 
   it('Upgrade works', async () => {
-    const upgradePath =
-      process.env.HYDRADX_RUNTIME_WASM_PATH ||
-      '/home/dmoka/dev/polkadot-ecosystem-tests/packages/hydration/tests/hydradx/256.wasm'
+    const curr = process.cwd()
+    console.log(`Current directory: ${curr}`)
+    const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${curr}/packages/hydration/tests/hydradx/256.wasm`
     console.log('Upgrade path: ' + upgradePath)
     await performUpgrade(hydraDXClient, upgradePath)
 
