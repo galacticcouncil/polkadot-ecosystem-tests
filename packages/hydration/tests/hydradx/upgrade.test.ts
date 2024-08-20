@@ -88,7 +88,7 @@ async function performUpgrade(hydraDXClient, upgradePath) {
   const referendumInfo = await hydraDXClient.api.query.democracy.referendumInfoOf(referendumNextIndex)
   //console.log("Referendum info:", referendumInfo.toHuman());
 
-  console.log('vote')
+  console.log('Voting on referendum')
   const voteTx = hydraDXClient.api.tx.democracy.vote(referendumNextIndex, {
     Standard: {
       balance: voteAmount,
@@ -105,9 +105,8 @@ async function performUpgrade(hydraDXClient, upgradePath) {
   for (const entry of entries) {
     const idx = hydraDXClient.api.registry.createType('u32', entry[0].toU8a().slice(-4)).toNumber()
     if (idx == referendumNextIndex) {
-      console.log('Ref index: ' + idx)
       const f = entry[1].unwrap().isFinished
-      console.log('Is Ref finished: ' + f)
+      console.log('Has Refeferendum finished: ' + f)
     }
   }
 
