@@ -4,22 +4,43 @@ import { blake2AsHex } from '@polkadot/util-crypto'
 import { checkEvents } from '../../support/helpers'
 import { defaultAccounts } from '@e2e-test/networks'
 import { hydraDX, moonbeam, polkadot } from '@e2e-test/networks/chains'
+import { query, tx } from '@e2e-test/shared/api'
 import { sendTransaction, testingPairs } from '@acala-network/chopsticks-testing'
 import { setupNetworks } from '@e2e-test/shared'
 
 describe('hydraDX upgrade', async () => {
-  const [hydraDXClient] = await setupNetworks(hydraDX)
+  const [hydraDXClient, moonbeamClient, polkadotClient] = await setupNetworks(hydraDX, moonbeam, polkadot)
+  const hydraDXDot = hydraDX.custom.relayToken
+  const moonbeamDot = moonbeam.custom.dot
 
-  it('Upgrade works', async () => {
-    const curr = process.cwd()
-    console.log(`Current directory: ${curr}`)
-    const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${curr}/packages/hydration/tests/hydradx/256.wasm`
-    //const upgradePath = `${curr}/packages/hydration/tests/hydradx/256.wasm`
+  it('Transfer DOT to moonbeam', async () => {
+    //Perform runtime version upgrade
+    const cwd = process.cwd()
+    console.log(`Current directory: ${cwd}`)
+    const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${cwd}/packages/hydration/tests/hydradx/256.wasm`
 
     console.log('Upgrade path: ' + upgradePath)
     await performUpgrade(hydraDXClient, upgradePath)
 
-    assert.equal(hydraDXClient.api.runtimeVersion.specVersion.toNumber(), 256)
+    //Do XCM transfer
+    const xtransfer = tx.xtokens.transfer(hydraDXDot, 2e10, tx.xtokens.parachainAccountId20V3(moonbeam.paraId!))
+    const txx = xtransfer(hydraDXClient, defaultAccounts.alith.addressRaw)
+    const tx0 = await sendTransaction(txx.signAsync(defaultAccounts.alice))
+
+    const alithOldBalance = await moonbeamClient.api.query.assets.account(moonbeamDot, defaultAccounts.alith.address)
+    assert(alithOldBalance.isNone)
+
+    //To have the xcm message sent from hydraDX, and processed on moonbeam, the blocks need to be produced in this order
+    await hydraDXClient.chain.newBlock()
+    await polkadotClient.chain.newBlock()
+    await moonbeamClient.chain.newBlock()
+
+    //Check if the transfer was successful
+    const alithNewBalance = (await moonbeamClient.api.query.assets.account(moonbeamDot, defaultAccounts.alith.address))
+      .unwrap()
+      .balance.toNumber()
+
+    assert(alithNewBalance > 0, 'Alice did not receive any token')
   })
 })
 
@@ -103,4 +124,37 @@ async function performUpgrade(hydraDXClient, upgradePath) {
 
   console.log('Spec version after upgrade: ', hydraDXClient.api.runtimeVersion.specVersion.toNumber())
   assert(newSpecVersion > currentSpecVersion, 'The spec version has not been increased')
+}
+
+/*
+console.log("CREATING DCA:");
+const nonce = await hydraApi.rpc.system.accountNextIndex(defaultAccounts.alice.publicKey);
+await createDca(hydraApi, defaultAccounts.alice, defaultAccounts.alice.publicKey, nonce, 0)*/
+async function createDca(api, user, user_pub_key, nonce, tip) {
+  try {
+    await api.tx.dca
+      .schedule(
+        {
+          owner: user_pub_key,
+          period: 1,
+          totalAmount: 1000000000000000,
+          maxRetries: null,
+          stabilityThreshold: null,
+          slippage: null,
+          order: {
+            Sell: {
+              assetIn: 5,
+              assetOut: 2,
+              amountIn: 100000000000000,
+              minAmountOut: 0,
+              route: null,
+            },
+          },
+        },
+        null,
+      )
+      .signAndSend(user, { nonce, tip })
+  } catch (error) {
+    console.log('Error while sending DCA - Sent transaction counter when signing fails: ' + error)
+  }
 }
