@@ -1,9 +1,8 @@
 import * as fs from 'fs'
+import { acala, hydraDX, moonbeam, polkadot } from '@e2e-test/networks/chains'
 import { assert, describe, it } from 'vitest'
 import { blake2AsHex } from '@polkadot/util-crypto'
-import { checkEvents } from '../../support/helpers'
 import { defaultAccounts } from '@e2e-test/networks'
-import { hydraDX, moonbeam, polkadot } from '@e2e-test/networks/chains'
 import { query, tx } from '@e2e-test/shared/api'
 import { sendTransaction, testingPairs } from '@acala-network/chopsticks-testing'
 import { setupNetworks } from '@e2e-test/shared'
@@ -11,17 +10,12 @@ import { setupNetworks } from '@e2e-test/shared'
 describe('hydraDX upgrade', async () => {
   const hydraDXDot = hydraDX.custom.relayToken
   const moonbeamDot = moonbeam.custom.dot
+  const acalaDot = acala.custom.dot
 
-  it('Transfer DOT to moonbeam', async () => {
+  it('Transfer DOT to Moonbeam', async () => {
     const [hydraDXClient, moonbeamClient, polkadotClient] = await setupNetworks(hydraDX, moonbeam, polkadot)
 
-    //Perform runtime version upgrade
-    const cwd = process.cwd()
-    console.log(`Current directory: ${cwd}`)
-    const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${cwd}/packages/hydration/tests/hydradx/256.wasm`
-
-    console.log('Upgrade path: ' + upgradePath)
-    await performUpgrade(hydraDXClient, upgradePath)
+    await performRuntimeUpgradeOnHydraWasm(hydraDXClient)
 
     //Do XCM transfer
     const xtransfer = tx.xtokens.transfer(hydraDXDot, 2e10, tx.xtokens.parachainAccountId20V3(moonbeam.paraId!))
@@ -43,7 +37,39 @@ describe('hydraDX upgrade', async () => {
 
     assert(alithNewBalance > 0, 'Alice did not receive any token')
   })
+
+  it('Transfer DOT to Acala', async () => {
+    const [hydraDXClient, acalaClient, polkadotClient] = await setupNetworks(hydraDX, acala, polkadot)
+
+    await performRuntimeUpgradeOnHydraWasm(hydraDXClient)
+
+    const getAcalaDotBalance = query.tokens(acalaDot)
+    const aliceOldBalance = await getAcalaDotBalance(acalaClient, defaultAccounts.alice.address)
+
+    //Do XCM transfer
+    const xtransfer = tx.xtokens.transfer(hydraDXDot, 2e10, tx.xtokens.parachainV3(acala.paraId!))
+    const txx = xtransfer(hydraDXClient, defaultAccounts.alice.addressRaw)
+    const tx0 = await sendTransaction(txx.signAsync(defaultAccounts.alice))
+
+    //To have the xcm message sent from hydraDX, and processed on acala, the blocks need to be produced in this order
+    await hydraDXClient.chain.newBlock()
+    await polkadotClient.chain.newBlock()
+    await acalaClient.chain.newBlock()
+
+    //Check if the transfer was successful
+    const aliceNewBalance = await getAcalaDotBalance(acalaClient, defaultAccounts.alice.address)
+    assert(aliceNewBalance > aliceOldBalance, 'Alice did not receive any token from xcm transfer')
+  })
 })
+
+async function performRuntimeUpgradeOnHydraWasm(hydraDXClient) {
+  const cwd = process.cwd()
+  console.log(`Current directory: ${cwd}`)
+  const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${cwd}/packages/hydration/tests/hydradx/256.wasm`
+
+  console.log('Upgrade path: ' + upgradePath)
+  await performUpgrade(hydraDXClient, upgradePath)
+}
 
 async function performUpgrade(hydraDXClient, upgradePath) {
   const code = fs.readFileSync(upgradePath).toString('hex')
