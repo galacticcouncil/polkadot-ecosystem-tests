@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { acala, hydraDX, moonbeam, polkadot } from '@e2e-test/networks/chains'
+import { acala, hydration, moonbeam, polkadot } from '@e2e-test/networks/chains'
 import { assert, describe, it } from 'vitest'
 import { blake2AsHex } from '@polkadot/util-crypto'
 import { defaultAccounts } from '@e2e-test/networks'
@@ -8,12 +8,12 @@ import { sendTransaction, testingPairs } from '@acala-network/chopsticks-testing
 import { setupNetworks } from '@e2e-test/shared'
 
 describe('hydraDX upgrade', async () => {
-  const hydraDXDot = hydraDX.custom.relayToken
+  const hydraDXDot = hydration.custom.relayToken
   const moonbeamDot = moonbeam.custom.dot
   const acalaDot = acala.custom.dot
 
   it('Transfer DOT to Moonbeam', async () => {
-    const [hydraDXClient, moonbeamClient, polkadotClient] = await setupNetworks(hydraDX, moonbeam, polkadot)
+    const [hydraDXClient, moonbeamClient, polkadotClient] = await setupNetworks(hydration, moonbeam, polkadot)
 
     await performRuntimeUpgradeOnHydraWasm(hydraDXClient)
 
@@ -39,7 +39,7 @@ describe('hydraDX upgrade', async () => {
   })
 
   it('Transfer DOT to Acala', async () => {
-    const [hydraDXClient, acalaClient, polkadotClient] = await setupNetworks(hydraDX, acala, polkadot)
+    const [hydraDXClient, acalaClient, polkadotClient] = await setupNetworks(hydration, acala, polkadot)
 
     await performRuntimeUpgradeOnHydraWasm(hydraDXClient)
 
