@@ -7,7 +7,11 @@ import { query, tx } from '@e2e-test/shared/api'
 import { sendTransaction, testingPairs } from '@acala-network/chopsticks-testing'
 import { setupNetworks } from '@e2e-test/shared'
 
-describe('hydraDX upgrade', async () => {
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+describe('XCM transfers', async () => {
   const hydraDXDot = hydration.custom.relayToken
   const moonbeamDot = moonbeam.custom.dot
   const acalaDot = acala.custom.dot
@@ -62,10 +66,10 @@ describe('hydraDX upgrade', async () => {
   })
 })
 
-async function performRuntimeUpgradeOnHydraWasm(hydraDXClient) {
+export async function performRuntimeUpgradeOnHydraWasm(hydraDXClient) {
   const cwd = process.cwd()
   console.log(`Current directory: ${cwd}`)
-  const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${cwd}/packages/hydration/tests/hydradx/256.wasm`
+  const upgradePath = process.env.HYDRADX_RUNTIME_WASM_PATH || `${cwd}/packages/hydration/tests/hydradx/308.wasm`
 
   console.log('Upgrade path: ' + upgradePath)
   await performUpgrade(hydraDXClient, upgradePath)
@@ -77,7 +81,7 @@ async function performUpgrade(hydraDXClient, upgradePath) {
 
   const currentSpecVersion = hydraDXClient.api.runtimeVersion.specVersion.toNumber()
   console.log(`Spec version before upgrade: ${currentSpecVersion}`)
-  const proposal = hydraDXClient.api.tx.parachainSystem.authorizeUpgrade(blake2AsHex(`0x${code}`), false)
+  const proposal = hydraDXClient.api.tx.system.authorizeUpgrade(blake2AsHex(`0x${code}`))
   const encodedProposal = proposal.method.toHex()
   console.log('Encoded proposal: ' + encodedProposal)
   const encodedHash = blake2AsHex(encodedProposal)
@@ -140,7 +144,7 @@ async function performUpgrade(hydraDXClient, upgradePath) {
   await hydraDXClient.chain.newBlock()
 
   console.log('Enacting auhtorized upgrade')
-  const enact = hydraDXClient.api.tx.parachainSystem.enactAuthorizedUpgrade(`0x${code}`)
+  const enact = hydraDXClient.api.tx.system.applyAuthorizedUpgrade(`0x${code}`)
   const enactTx = await sendTransaction(enact.signAsync(alice))
   await hydraDXClient.chain.newBlock()
   await hydraDXClient.chain.newBlock()

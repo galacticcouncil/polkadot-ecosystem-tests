@@ -9,6 +9,8 @@ export async function createNetwork<T extends Chain>(chainConfig: T) {
   if (chainConfig.initStorages) {
     await network.dev.setStorage(chainConfig.initStorages)
   }
+  console.log('Network chain:', chainConfig.name)
+  console.log('Network details:', network.url)
 
   return {
     ...network,
