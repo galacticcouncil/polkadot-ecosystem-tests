@@ -41,6 +41,17 @@ export const hydration = defineChain({
   initStorages: getInitStorages(custom.hydration),
 })
 
+export const hydrationWithBlockNumber = (blockNumber: any) => {
+  return defineChain({
+    name: 'hydration',
+    paraId: 2034,
+    endpoint: 'wss://rpc.hydradx.cloud',
+    custom: custom.hydration,
+    initStorages: getInitStorages(custom.hydration),
+    blockNumber,
+  })
+}
+
 export const basilisk = defineChain({
   name: 'basilisk',
   paraId: 2090,
