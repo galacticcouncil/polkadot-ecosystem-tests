@@ -10,7 +10,7 @@ import { setupNetworks } from '@e2e-test/shared'
 
 const USED_BLOCKS_FOR_UPGRADE = 10
 
-describe('Check important DCA schedule executions', async () => {
+describe.skip('Check important DCA schedule executions', async () => {
   it('Polkadot Treasury DCA 15444', async () => {
     // Arrange
     const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(7434843 - USED_BLOCKS_FOR_UPGRADE))

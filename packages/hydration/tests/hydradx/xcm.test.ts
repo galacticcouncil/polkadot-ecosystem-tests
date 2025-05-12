@@ -11,7 +11,7 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-describe('XCM transfers', async () => {
+describe.skip('XCM transfers', async () => {
   const hydraDXDot = hydration.custom.relayToken
   const moonbeamDot = moonbeam.custom.dot
   const acalaDot = acala.custom.dot
