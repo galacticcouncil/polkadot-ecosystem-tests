@@ -11,11 +11,7 @@ describe('Check important DCA schedule executions', async () => {
   it('Polkadot Treasury DCA 15444', async () => {
     // Arrange
 
-    const [hydraDXClient, _moonbeamClient, _polkadotClient] = await setupNetworks(
-      hydrationWithBlockNumber(9479421 - USED_BLOCKS_FOR_UPGRADE),
-      moonbeam,
-      polkadot,
-    )
+    const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(9479421 - USED_BLOCKS_FOR_UPGRADE))
 
     // Act
     await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
@@ -33,11 +29,7 @@ describe('Check important DCA schedule executions', async () => {
 
   it('Polkadot Treasury DCA 15445', async () => {
     // Arrange
-    const [hydraDXClient, _moonbeamClient, _polkadotClient] = await setupNetworks(
-      hydrationWithBlockNumber(9478848 - USED_BLOCKS_FOR_UPGRADE),
-      moonbeam,
-      polkadot,
-    )
+    const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(9478848 - USED_BLOCKS_FOR_UPGRADE))
 
     // Act
     await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
@@ -51,9 +43,8 @@ describe('Check important DCA schedule executions', async () => {
 
   it('Polkadot Treasury DCA 15446', async () => {
     // Arrange
-    const [hydraDXClient, _moonbeamClient, _polkadotClient] = await setupNetworks(
+    const [hydraDXClient, _polkadotClient] = await setupNetworks(
       hydrationWithBlockNumber(9478824 - USED_BLOCKS_FOR_UPGRADE),
-      moonbeam,
       polkadot,
     )
 
@@ -69,11 +60,7 @@ describe('Check important DCA schedule executions', async () => {
 
   it('Polkadot Treasury DCA 15447', async () => {
     // Arrange
-    const [hydraDXClient, _moonbeamClient, _polkadotClient] = await setupNetworks(
-      hydrationWithBlockNumber(9478855 - USED_BLOCKS_FOR_UPGRADE),
-      moonbeam,
-      polkadot,
-    )
+    const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(9478855 - USED_BLOCKS_FOR_UPGRADE))
 
     // Act
     await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
@@ -131,6 +118,6 @@ async function checkForTradeExecutedEvent(hydraDXClient, expectedScheduleId) {
   }
 }
 
-function _sleep(ms) {
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
