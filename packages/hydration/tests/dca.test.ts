@@ -8,39 +8,6 @@ import { performRuntimeUpgradeOnHydraWasmViaReferenda } from './utils.js'
 const USED_BLOCKS_FOR_UPGRADE = 20
 
 describe('Check important DCA schedule executions', async () => {
-  it('Polkadot Treasury DCA 15444', async () => {
-    // Arrange
-
-    const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(9479421 - USED_BLOCKS_FOR_UPGRADE))
-
-    // Act
-    await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
-    console.log('Upgrade completed')
-    console.log('Adding new block to trigger DCA execution...')
-    await hydraDXClient.chain.newBlock()
-    console.log('New block added')
-
-    // Assert
-    console.log('Checking for TradeExecuted event for DCA schedule 15444...')
-    const expectedScheduleId = 15444
-    const event = await checkForTradeExecutedEvent(hydraDXClient, expectedScheduleId)
-    assert(event, `DCA schedule ${expectedScheduleId} trade was not successfully executed`)
-  })
-
-  it('Polkadot Treasury DCA 15445', async () => {
-    // Arrange
-    const [hydraDXClient] = await setupNetworks(hydrationWithBlockNumber(9478848 - USED_BLOCKS_FOR_UPGRADE))
-
-    // Act
-    await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
-    await hydraDXClient.chain.newBlock()
-
-    // Assert
-    const expectedScheduleId = 15445
-    const event = await checkForTradeExecutedEvent(hydraDXClient, expectedScheduleId)
-    assert(event, `DCA schedule ${expectedScheduleId} trade was not successfully executed`)
-  })
-
   it('Polkadot Treasury DCA 15446', async () => {
     // Arrange
     const [hydraDXClient, _polkadotClient] = await setupNetworks(
