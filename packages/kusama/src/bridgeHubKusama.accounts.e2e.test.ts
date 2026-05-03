@@ -3,12 +3,10 @@ import { accountsE2ETests, createAccountsConfig, registerTestTree, type TestConf
 
 const testCfg: TestConfig = {
   testSuiteName: 'Kusama Bridge Hub Accounts',
-  addressEncoding: 2,
-  blockProvider: 'Local',
-  chainEd: 'LowEd',
 }
 
 const accountsCfg = createAccountsConfig({
+  expectation: 'success',
   relayChain: kusama,
 })
 

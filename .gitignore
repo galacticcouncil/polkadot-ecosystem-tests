@@ -115,3 +115,9 @@ dist
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+
+# LLM tooling
+/.claude/settings.local.json
+*.local.md
+.sisyphus/*
+.opencode/*

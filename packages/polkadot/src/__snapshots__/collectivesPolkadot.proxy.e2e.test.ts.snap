@@ -150,11 +150,87 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
 ]
 `;
 
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polkadot Collectives Proxy base tests > add proxies (with/without delay) to an account, and remove them > events when removing proxies from Alice (removeProxies) 1`] = `
+[
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "1LBbHGCXcmzwxhmxsMvjGWfR6cGbUADPL5nv1A18rD4Xf4R",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "Any",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "12mR752ZLe32C5xhai4kE9n1sytSpE1XPTXr7dmzv2tYMMVs",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "Fellowship",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "13foYqdELfj1VBWUdKpJTkLgr7tkGdSvxWyYbFjZaYi8iLan",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "CancelProxy",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "13tsR5Cx9rYpR5UgpYskh3cyfiRxgVJiVvSJR89qLBjxtbA9",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "Alliance",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "14KRavukzykAQ7mWYDRWHnUAp42zpVeRgVr5Vu3oaAHBkn4J",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "NonTransfer",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "14QPRmts91hw16ReRoPSKLHdm1rEKVHftYcqEJyuWBwfnuJ6",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "Collator",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "14YRWSTsjvjY39pPXKu9fj1zHyso2E2mpxFmdtw6dMuyKjdW",
+      "delegator": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+      "proxyType": "Ambassador",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+]
+`;
+
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polkadot Collectives Proxy base tests > create and kill pure proxies > events when creating pure proxies for Alice 1`] = `
 [
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Any",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -164,6 +240,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "NonTransfer",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -173,6 +250,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "CancelProxy",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -182,6 +260,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Collator",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -191,6 +270,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Alliance",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -200,6 +280,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Fellowship",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -209,6 +290,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Ambassador",
       "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
     },
@@ -400,6 +482,46 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polka
 ]
 `;
 
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polkadot Collectives Proxy base tests > pure proxy ownership change test > events when creating a pure proxy for Alice 1`] = `
+[
+  {
+    "data": {
+      "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
+      "proxyType": "Any",
+      "who": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
+    },
+    "method": "PureCreated",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > Polkadot Collectives Proxy base tests > reject force_proxy_type superset (exact match required) > proxy force_proxy_type requires exact match 1`] = `
+[
+  {
+    "data": {
+      "dispatchError": {
+        "Module": {
+          "error": "0x02000000",
+          "index": 42,
+        },
+      },
+      "dispatchInfo": {
+        "class": "Normal",
+        "paysFee": "Yes",
+        "weight": {
+          "proofSize": 0,
+          "refTime": "(rounded 900000000)",
+        },
+      },
+    },
+    "method": "ExtrinsicFailed",
+    "section": "system",
+  },
+]
+`;
+
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Alliance > events for proxy type Alliance, pallet alliance, call join_alliance 1`] = `
 [
   {
@@ -460,11 +582,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Alliance > events for proxy type Alliance, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -477,11 +594,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Alliance > events for proxy type Alliance, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -493,11 +605,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Alliance > events for proxy type Alliance, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -573,7 +680,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x00000000",
-            "index": "(redacted)",
+            "index": 71,
           },
         },
       },
@@ -599,11 +706,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Ambassador > events for proxy type Ambassador, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -616,11 +718,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Ambassador > events for proxy type Ambassador, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -632,11 +729,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Ambassador > events for proxy type Ambassador, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -725,20 +817,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -746,43 +824,16 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 [
   {
     "data": {
-      "hash_": "(hash)",
-      "sender": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
-    },
-    "method": "Remarked",
-    "section": "system",
-  },
-  {
-    "data": {
       "result": "Ok",
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -796,11 +847,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -812,11 +858,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -868,11 +909,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -885,11 +921,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -901,11 +932,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -957,11 +983,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Collator > events for proxy type Collator, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -974,11 +995,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Collator > events for proxy type Collator, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -990,11 +1006,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Collator > events for proxy type Collator, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1051,7 +1062,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x00000000",
-            "index": "(redacted)",
+            "index": 61,
           },
         },
       },
@@ -1084,11 +1095,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Fellowship > events for proxy type Fellowship, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1101,11 +1107,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Fellowship > events for proxy type Fellowship, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1117,11 +1118,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Fellowship > events for proxy type Fellowship, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1198,20 +1194,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -1219,43 +1201,16 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 [
   {
     "data": {
-      "hash_": "(hash)",
-      "sender": "1ZLR63GQkKph3XmxzziZ1RrPsL6CrJJ1izhgR1mzMaoHZJA",
-    },
-    "method": "Remarked",
-    "section": "system",
-  },
-  {
-    "data": {
       "result": "Ok",
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1269,11 +1224,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1285,11 +1235,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1384,7 +1329,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
           },
         },
       },
@@ -1403,7 +1348,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
           },
         },
       },
@@ -1452,39 +1397,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 ]
 `;
 
-exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Alliance > events for proxy type Alliance, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 20000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Alliance > events for proxy type Alliance, pallet system, call remark 1`] = `
 [
   {
@@ -1500,20 +1412,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1534,19 +1432,24 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Alliance > events for proxy type Alliance, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -1635,7 +1538,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
           },
         },
       },
@@ -1665,39 +1568,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 ]
 `;
 
-exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Ambassador > events for proxy type Ambassador, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 20000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Ambassador > events for proxy type Ambassador, pallet system, call remark 1`] = `
 [
   {
@@ -1713,20 +1583,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1747,19 +1603,24 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Ambassador > events for proxy type Ambassador, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -1783,39 +1644,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 ]
 `;
 
-exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 20000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call remark 1`] = `
 [
   {
@@ -1831,20 +1659,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1865,19 +1679,24 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -1901,39 +1720,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 ]
 `;
 
-exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Collator > events for proxy type Collator, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 20000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Collator > events for proxy type Collator, pallet system, call remark 1`] = `
 [
   {
@@ -1949,20 +1735,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1983,19 +1755,24 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Collator > events for proxy type Collator, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2103,7 +1880,7 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
           },
         },
       },
@@ -2133,39 +1910,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
 ]
 `;
 
-exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Fellowship > events for proxy type Fellowship, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 20000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Fellowship > events for proxy type Fellowship, pallet system, call remark 1`] = `
 [
   {
@@ -2181,20 +1925,6 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2215,19 +1945,24 @@ exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filte
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Polkadot Collectives Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Fellowship > events for proxy type Fellowship, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 800000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;

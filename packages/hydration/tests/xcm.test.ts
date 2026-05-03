@@ -1,7 +1,7 @@
 import { sendTransaction } from '@acala-network/chopsticks-testing'
 
 import { defaultAccounts } from '@e2e-test/networks'
-import { acala, hydration, moonbeam, polkadot } from '@e2e-test/networks/chains'
+import { acala, assetHubPolkadot, hydration, moonbeam, polkadot } from '@e2e-test/networks/chains'
 import { setupNetworks } from '@e2e-test/shared'
 import { query, tx } from '@e2e-test/shared/api'
 
@@ -19,49 +19,52 @@ describe('XCM transfers', async () => {
 
     await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
 
-    //Do XCM transfer
     const xtransfer = tx.xtokens.transfer(hydraDXDot, 2e10, tx.xtokens.parachainAccountId20V3(moonbeam.paraId!))
     const txx = xtransfer(hydraDXClient, defaultAccounts.alith.addressRaw)
-    const _tx0 = await sendTransaction(txx.signAsync(defaultAccounts.alice))
+    await sendTransaction(txx.signAsync(defaultAccounts.alice))
 
     const alithOldBalance = await moonbeamClient.api.query.assets.account(moonbeamDot, defaultAccounts.alith.address)
     assert(alithOldBalance.isNone)
 
-    //To have the xcm message sent from hydraDX, and processed on moonbeam, the blocks need to be produced in this order
     await hydraDXClient.chain.newBlock()
     await polkadotClient.chain.newBlock()
     await moonbeamClient.chain.newBlock()
 
-    //Check if the transfer was successful
     const alithNewBalance = (await moonbeamClient.api.query.assets.account(moonbeamDot, defaultAccounts.alith.address))
       .unwrap()
       .balance.toNumber()
-
-    const _newSpecVersion = await hydraDXClient.api.runtimeVersion.specVersion.toNumber()
-    //assert(newSpecVersion == 349, 'The spec version is not as expected')
 
     assert(alithNewBalance > 0, 'Alice did not receive any token')
   })
 
   it('Transfer DOT to Acala', async () => {
-    const [hydraDXClient, acalaClient, polkadotClient] = await setupNetworks(hydration, acala, polkadot)
+    // Post-AHM, DOT must be reserve-transferred via Asset Hub.
+    // xtokens UMP-via-relay is rejected by Acala's barrier; we use polkadotXcm
+    // with RemoteReserve(AssetHub) so the message goes hydration → AssetHub → Acala over HRMP.
+    const [hydraDXClient, acalaClient, assetHubPolkadotClient] = await setupNetworks(hydration, acala, assetHubPolkadot)
 
     await performRuntimeUpgradeOnHydraWasmViaReferenda(hydraDXClient)
 
     const getAcalaDotBalance = query.tokens(acalaDot)
     const aliceOldBalance = await getAcalaDotBalance(acalaClient, defaultAccounts.alice.address)
 
-    //Do XCM transfer
-    const xtransfer = tx.xtokens.transfer(hydraDXDot, 2e10, tx.xtokens.parachainV3(acala.paraId!))
-    const txx = xtransfer(hydraDXClient, defaultAccounts.alice.addressRaw)
-    const _tx0 = await sendTransaction(txx.signAsync(defaultAccounts.alice))
+    const remoteReserve = {
+      RemoteReserve: { V4: { parents: 1, interior: { X1: [{ Parachain: assetHubPolkadot.paraId }] } } },
+    } as any
+    const transfer = tx.xcmPallet.transferAssetsUsingType(
+      tx.xcmPallet.parachainV4(1, acala.paraId!),
+      [{ id: { parents: 1, interior: 'Here' }, fun: { Fungible: 2e10 } }],
+      remoteReserve,
+      { parents: 1, interior: 'Here' },
+      remoteReserve,
+    )
+    const txx = transfer(hydraDXClient, defaultAccounts.alice.addressRaw)
+    await sendTransaction(txx.signAsync(defaultAccounts.alice))
 
-    //To have the xcm message sent from hydraDX, and processed on acala, the blocks need to be produced in this order
     await hydraDXClient.chain.newBlock()
-    await polkadotClient.chain.newBlock()
+    await assetHubPolkadotClient.chain.newBlock()
     await acalaClient.chain.newBlock()
 
-    //Check if the transfer was successful
     const aliceNewBalance = await getAcalaDotBalance(acalaClient, defaultAccounts.alice.address)
     assert(aliceNewBalance > aliceOldBalance, 'Alice did not receive any token from xcm transfer')
   })

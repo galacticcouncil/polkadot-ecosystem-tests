@@ -1,5 +1,8 @@
+import { standardFeeExtractor } from '@e2e-test/shared'
+
 import { defineChain } from '../defineChain.js'
-import { defaultAccounts } from '../testAccounts.js'
+import endpoints from '../pet-chain-endpoints.json' with { type: 'json' }
+import { defaultAccounts, defaultAccountsSr25519 } from '../testAccounts.js'
 
 const custom = {
   hydration: {
@@ -16,11 +19,11 @@ const custom = {
 
 const getInitStorages = (config: typeof custom.hydration | typeof custom.basilisk) => ({
   System: {
-    Account: [[[defaultAccounts.alice.address], { providers: 1, data: { free: 2n ** 128n - 1n } }]],
+    Account: [[[defaultAccountsSr25519.alice.address], { providers: 1, data: { free: 10n ** 18n } }]],
   },
   Tokens: {
     Accounts: [
-      [[defaultAccounts.alice.address, config.relayToken], { free: 1000 * 1e12 }],
+      [[defaultAccountsSr25519.alice.address, config.relayToken], { free: 1000 * 1e12 }],
       [[defaultAccounts.alice.address, config.dai], { free: 100n * 10n ** 18n }],
     ],
   },
@@ -29,13 +32,19 @@ const getInitStorages = (config: typeof custom.hydration | typeof custom.basilis
   },
 })
 
+// galacticcouncil-specific: includes Parameters.IsTestnet so the runtime
+// runs in testnet mode during chopsticks fork tests.
 const getInitStoragesHydration = (config: typeof custom.hydration | typeof custom.basilisk) => ({
   System: {
-    Account: [[[defaultAccounts.alice.address], { providers: 1, data: { free: 2n ** 128n - 1n } }]],
+    Account: [
+      [[defaultAccounts.alice.address], { providers: 1, data: { free: 2n ** 128n - 1n } }],
+      [[defaultAccountsSr25519.alice.address], { providers: 1, data: { free: 2n ** 128n - 1n } }],
+    ],
   },
   Tokens: {
     Accounts: [
       [[defaultAccounts.alice.address, config.relayToken], { free: 1000 * 1e12 }],
+      [[defaultAccountsSr25519.alice.address, config.relayToken], { free: 1000 * 1e12 }],
       [[defaultAccounts.alice.address, config.dai], { free: 100n * 10n ** 18n }],
     ],
   },
@@ -47,21 +56,32 @@ const getInitStoragesHydration = (config: typeof custom.hydration | typeof custo
   },
 })
 
+const hydrationProperties = {
+  addressEncoding: 0,
+  schedulerBlockProvider: 'Local' as const,
+  asyncBacking: 'Enabled' as const,
+  feeExtractor: standardFeeExtractor,
+}
+
 export const hydration = defineChain({
   name: 'hydration',
   paraId: 2034,
-  endpoint: 'wss://rpc.hydradx.cloud',
+  endpoint: endpoints.hydration,
+  networkGroup: 'polkadot',
   custom: custom.hydration,
   initStorages: getInitStoragesHydration(custom.hydration),
+  properties: hydrationProperties,
 })
 
 export const hydrationWithBlockNumber = (blockNumber: any) => {
   return defineChain({
     name: 'hydration',
     paraId: 2034,
-    endpoint: 'wss://rpc.hydradx.cloud',
+    endpoint: endpoints.hydration,
+    networkGroup: 'polkadot',
     custom: custom.hydration,
     initStorages: getInitStoragesHydration(custom.hydration),
+    properties: hydrationProperties,
     blockNumber,
   })
 }
@@ -69,7 +89,14 @@ export const hydrationWithBlockNumber = (blockNumber: any) => {
 export const basilisk = defineChain({
   name: 'basilisk',
   paraId: 2090,
-  endpoint: 'wss://basilisk-rpc.dwellir.com',
+  endpoint: endpoints.basilisk,
+  networkGroup: 'kusama',
   custom: custom.basilisk,
   initStorages: getInitStorages(custom.basilisk),
+  properties: {
+    addressEncoding: 10041,
+    schedulerBlockProvider: 'Local',
+    asyncBacking: 'Enabled',
+    feeExtractor: standardFeeExtractor,
+  },
 })

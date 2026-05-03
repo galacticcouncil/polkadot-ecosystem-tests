@@ -154,6 +154,30 @@ These include:
     - Bounty closure restrictions (approved/pending payout states)
     - Non-curator attempting to accept curator role
     - Child bounty constraints preventing parent bounty closure
+- E2E test suite for child bounties infrastructure:
+  - Child bounty creation, curator assignment, acceptance, awarding and claiming workflows
+  - Child bounty closure and fund return to parent bounty
+  - Child bounty rejection by curators and cancellation by parent curators
+  - Curator unassignment scenarios with different deposit handling (refund vs. slash)
+  - Storage verification for child bounty counters and cleanup
+  - Comprehensive failure mode testing:
+    - Creating child bounties from non-active parent bounties
+    - Child bounty with InvalidValue, InvalidIndex, InvalidFee, TooManyChildBounties, ReasonTooBig
+    - Accepting curators in wrong child bounty states
+    - Closing child bounties in pending payout status
+    - Non-curator attempting to create child bounties
+- E2E test suite for the `configuration` pallet on relay chains:
+  - Scheduling configuration updates via Root origin across all parameter groups: core (code size, PoV size, upgrade cooldown/delay), scheduler (group rotation, availability period, lookahead, validators per core), dispute resolution, message queue (upward/downward queue limits), HRMP channel parameters, and advanced parameters (PVF voting TTL, async backing params, executor params, approval voting, node features)
+  - Verifying that the pending config entry is scheduled for session index `currentIndex + 2`
+  - Idempotency: re-scheduling the same configuration values leaves the pending entry unchanged
+  - Overwrite behaviour: a later scheduled value for the same field replaces the earlier one
+  - Same-block merge: multiple changes scheduled in the same block are folded into a single pending entry
+  - Consistency check matrix:
+    - Consistent base + inconsistent new value → rejected with `InvalidNewValue`
+    - Inconsistent base + inconsistent new value → accepted (recovery path)
+    - Inconsistent base + consistent new value → accepted
+    - `bypassConsistencyCheck` flag enabled → inconsistent values accepted unconditionally
+  - Asserting that all configuration setters fail when called with a signed (non-Root) origin
 
 The intent behind these end-to-end tests is to cover the basic behavior of relay chains' and system
 parachains' runtimes.
@@ -202,6 +226,49 @@ Run it with `yarn check-proxy-coverage` to see which proxy types need test cover
   - Inspect the snapshots, and make corrections to tests as necessary - or upstream, if the test
     has revealed an issue with e.g. `polkadot-sdk`
 4. Create a PR with the new tests.
+
+### Subway Configuration for E2E Tests
+
+Chains with E2E tests should use Subway. Subway acts as a caching RPC proxy that improves test reliability and performance by:
+- Load balancing across multiple RPC endpoints
+- Caching responses to reduce upstream load
+- Providing health checks and timeouts
+- Rate limiting to prevent overwhelming upstream nodes
+
+#### Updating JSON config with a chain's endpoints
+
+**Finding RPC endpoints:** Check [Polkadot.js Apps](https://polkadot.js.org/apps) or the [PAPI console](https://papi.how) for public endpoints, or consult the chain's documentation. Use 2-3 reliable endpoints for redundancy.
+
+**Step 1: Modify PET's endpoint configuration file**
+
+Location: `packages/networks/src/pet-chain-endpoints.json`
+
+**Step 2: Register the chain in CI workflows**
+
+Add your chain to the appropriate network's `chains` list in both `.github/workflows/ci.yml` and `.github/workflows/update-snapshot.yml`.
+
+Find the matrix entry for your network and add your chain:
+
+```yaml
+matrix:
+  network:
+    - name: "polkadot"  # Choose "polkadot" or "kusama" based on your chain's ecosystem
+      chains:
+        # ... existing chains for this network ...
+        - { chain: "<chainName>", port: 90XX, endpoint_var: "<CHAINNAME>_ENDPOINT" }
+```
+
+- Choose any unused port number (check existing matrix entries to avoid conflicts)
+- Follow the naming convention for `endpoint_var`: uppercase chain name + `_ENDPOINT`
+- Add the same configuration to **both** workflow files
+
+**What this enables:**
+- Both the [CI workflow](.github/workflows/ci.yml) and [Update Snapshots workflow](.github/workflows/update-snapshot.yml) will automatically:
+  - Install and start Subway for the added network
+  - Run tests through the caching proxy (via `ws://localhost:{port}`)
+  - Set `<CHAIN_NAME>_ENDPOINT` environment variable for test access
+- Increased test reliability and speed due to response caching
+- Multiple Subway instances run in parallel for different chains
 
 ### Writing Tests
 

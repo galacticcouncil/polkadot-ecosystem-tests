@@ -14,44 +14,151 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Use Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 22.x
         cache: 'yarn'
     - run: yarn --immutable
     - run: yarn lint
-  define-matrix:
+
+  ecosystem-tests:
+    name: "Tests (${{ matrix.network.name }})"
     runs-on: ubuntu-latest
-    outputs:
-      tests: ${{ steps.tests.outputs.tests }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Define Tests
-        id: tests
-        run: |
-          echo tests=$(cd packages && ls */src/*.test.ts | jq -R -s -c 'split("\n")[:-1]') >> "$GITHUB_OUTPUT"
-  tests:
-    needs: define-matrix
-    timeout-minutes: 30
+    timeout-minutes: 150
     strategy:
       fail-fast: false
       matrix:
-        tests: ${{ fromJSON(needs.define-matrix.outputs.tests) }}
-    runs-on: ubuntu-latest
+        network:
+          - name: "polkadot"
+            chains:
+              - { chain: "polkadot", port: 9000, endpoint_var: "POLKADOT_ENDPOINT" }
+              - { chain: "assetHubPolkadot", port: 9001, endpoint_var: "ASSETHUBPOLKADOT_ENDPOINT" }
+              - { chain: "bridgeHubPolkadot", port: 9002, endpoint_var: "BRIDGEHUBPOLKADOT_ENDPOINT" }
+              - { chain: "collectivesPolkadot", port: 9003, endpoint_var: "COLLECTIVESPOLKADOT_ENDPOINT" }
+              - { chain: "coretimePolkadot", port: 9004, endpoint_var: "CORETIMEPOLKADOT_ENDPOINT" }
+              - { chain: "peoplePolkadot", port: 9005, endpoint_var: "PEOPLEPOLKADOT_ENDPOINT" }
+              - { chain: "acala", port: 9006, endpoint_var: "ACALA_ENDPOINT" }
+              - { chain: "hydration", port: 9007, endpoint_var: "HYDRATION_ENDPOINT" }
+              - { chain: "bifrostPolkadot", port: 9008, endpoint_var: "BIFROSTPOLKADOT_ENDPOINT" }
+          - name: "kusama"
+            chains:
+              - { chain: "kusama", port: 9010, endpoint_var: "KUSAMA_ENDPOINT" }
+              - { chain: "assetHubKusama", port: 9011, endpoint_var: "ASSETHUBKUSAMA_ENDPOINT" }
+              - { chain: "bridgeHubKusama", port: 9012, endpoint_var: "BRIDGEHUBKUSAMA_ENDPOINT" }
+              - { chain: "coretimeKusama", port: 9013, endpoint_var: "CORETIMEKUSAMA_ENDPOINT" }
+              - { chain: "peopleKusama", port: 9014, endpoint_var: "PEOPLEKUSAMA_ENDPOINT" }
+              - { chain: "encointerKusama", port: 9015, endpoint_var: "ENCOINTERKUSAMA_ENDPOINT" }
+              - { chain: "karura", port: 9016, endpoint_var: "KARURA_ENDPOINT" }
+              - { chain: "bifrostKusama", port: 9017, endpoint_var: "BIFROSTKUSAMA_ENDPOINT" }
     steps:
-    - uses: actions/checkout@v4
-    - name: setup node env
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22.x
-        cache: 'yarn'
-    - run: yarn --immutable
-    - run: yarn test packages/${{ matrix.tests }}
+      - uses: actions/checkout@v5
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22.x
+          cache: 'yarn'
+
+      - run: yarn --immutable
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Get Subway commit hash
+        id: subway-commit
+        run: echo "hash=$(git ls-remote https://github.com/AcalaNetwork/subway HEAD | cut -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache Subway binary
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: subway-binary-${{ steps.subway-commit.outputs.hash }}
+          save-if: ${{ github.ref == 'refs/heads/master' }}
+
+      - name: Install Subway
+        run: cargo install --git https://github.com/AcalaNetwork/subway
+
+      - name: Source known good block numbers
+        run: |
+          NETWORK_UPPER=$(echo "${{ matrix.network.name }}" | tr '[:lower:]' '[:upper:]')
+          ENV_FILE="KNOWN_GOOD_BLOCK_NUMBERS_${NETWORK_UPPER}.env"
+          echo "Sourcing block numbers from $ENV_FILE"
+          cat "$ENV_FILE" >> $GITHUB_ENV
+
+      - name: Start all Subway instances
+        run: |
+          echo "Starting all Subway instances for ${{ matrix.network.name }}..."
+
+          echo '${{ toJSON(matrix.network.chains) }}' | jq -c '.[]' | while read chain; do
+            CHAIN=$(echo $chain | jq -r '.chain')
+            PORT=$(echo $chain | jq -r '.port')
+
+            # Get endpoints from pet-chain-endpoints.json
+            ENDPOINTS=$(jq -c ".$CHAIN" packages/networks/src/pet-chain-endpoints.json)
+
+            if [ "$ENDPOINTS" = "null" ] || [ -z "$ENDPOINTS" ]; then
+              echo "Error: No endpoints found for chain $CHAIN"
+              exit 1
+            fi
+
+            echo "Starting Subway for $CHAIN on port $PORT..."
+            sed -e "s/{{PORT}}/$PORT/g" -e "s|{{ENDPOINTS}}|$ENDPOINTS|g" .github/subway-template.yml > /tmp/subway-$PORT.yml
+            subway --config /tmp/subway-$PORT.yml > /tmp/subway-$PORT.log 2>&1 &
+            echo $! >> /tmp/subway.pids
+          done
+
+          echo "Waiting for all Subway instances to start..."
+          echo '${{ toJSON(matrix.network.chains) }}' | jq -c '.[]' | while read chain; do
+            PORT=$(echo $chain | jq -r '.port')
+            timeout=60
+            elapsed=0
+            while [ $elapsed -lt $timeout ]; do
+              if curl -sf http://127.0.0.1:$PORT/health > /dev/null 2>&1; then
+                echo "Subway on port $PORT started successfully!"
+                break
+              fi
+              sleep 1
+              elapsed=$((elapsed + 1))
+            done
+
+            if [ $elapsed -ge $timeout ]; then
+              echo "Timeout waiting for subway on port $PORT"
+              cat /tmp/subway-$PORT.log
+              exit 1
+            fi
+          done
+
+          echo "All Subway instances started successfully!"
+
+      - name: Set endpoint environment variables
+        run: |
+          echo '${{ toJSON(matrix.network.chains) }}' | jq -c '.[]' | while read chain; do
+            ENDPOINT_VAR=$(echo $chain | jq -r '.endpoint_var')
+            PORT=$(echo $chain | jq -r '.port')
+            echo "${ENDPOINT_VAR}=ws://localhost:${PORT}" >> $GITHUB_ENV
+          done
+
+      - name: Run ${{ matrix.network.name }} tests
+        run: yarn test:${{ matrix.network.name }} --pool=threads --maxWorkers=3 --retry=3
+
+      - name: Cleanup Subway instances
+        if: always()
+        run: |
+          if [ -f /tmp/subway.pids ]; then
+            cat /tmp/subway.pids | xargs kill || true
+          fi
+
+          for log in /tmp/subway-*.log; do
+            if [ -f "$log" ]; then
+              echo "=== $log ==="
+              tail -20 "$log" || true
+            fi
+          done
+
   all-passed:
     runs-on: ubuntu-latest
-    needs: tests
+    needs: ecosystem-tests
     if: always()
     steps:
       - name: All tests ok

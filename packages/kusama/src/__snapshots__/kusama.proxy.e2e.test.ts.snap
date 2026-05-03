@@ -210,11 +210,117 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
 ]
 `;
 
+exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base tests > add proxies (with/without delay) to an account, and remove them > events when removing proxies from Alice (removeProxies) 1`] = `
+[
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "CuW7GM1JCXTG5Whmw7yV53Wi4trhqRFmDC49NSc4ZQ36UCg",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Any",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "DAbUwtseJVK8571h1MgjeuPTBCW6NZt5G7moDa1iGJZQ8FL",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "ParaRegistration",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "DgBeKgakkePrTGGSi4deeNAiZzPRJ8mszSZqmtp5CYWm9JY",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Spokesperson",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "E2SeX2FCET9jK6AgYaz2bjMsjp8DdE5BRchooMp5uMBoL9B",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "NominationPools",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "Ef4fPbsLDyyhBZMsLNxuErttrTVeZygduXM26bupXbrgjKP",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Governance",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "F1yN2phuNDeehafhtzb9bJmkdShgEuMqxwZbRKMaeAqvUfU",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Auction",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "FF84pi37FUToJKQSPaMDYsY96BLNzhyLQ5opd2AWFu7HCKe",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "CancelProxy",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "Fju5xS5KrXfrYCDMRPZa38t7x73jumfQsTqxpFgjni58nXF",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Staking",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "Ftk6uzZmZVciEaSMHBZ3b1272KavruU4NxLjGLQVsUAKV3B",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "NonTransfer",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+  {
+    "data": {
+      "delay": 5,
+      "delegatee": "HuzD9NcQaDgcMcSYWpeAPFDaLC7dS53TDruPCmU97njVEzZ",
+      "delegator": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+      "proxyType": "Society",
+    },
+    "method": "ProxyRemoved",
+    "section": "proxy",
+  },
+]
+`;
+
 exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base tests > create and kill pure proxies > events when creating pure proxies for Alice 1`] = `
 [
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Any",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -224,6 +330,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "NonTransfer",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -233,6 +340,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Governance",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -242,6 +350,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Staking",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -251,6 +360,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "CancelProxy",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -260,6 +370,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Auction",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -269,6 +380,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Society",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -278,6 +390,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "NominationPools",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -287,6 +400,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "Spokesperson",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -296,6 +410,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
   {
     "data": {
       "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
       "proxyType": "ParaRegistration",
       "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
     },
@@ -544,46 +659,48 @@ exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base t
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet auctions, call bid 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base tests > pure proxy ownership change test > events when creating a pure proxy for Alice 1`] = `
 [
   {
     "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x03000000",
-            "index": 72,
-          },
+      "disambiguationIndex": 0,
+      "extrinsicIndex": 2,
+      "proxyType": "Any",
+      "who": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
+    },
+    "method": "PureCreated",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > Kusama Proxy base tests > reject force_proxy_type superset (exact match required) > proxy force_proxy_type requires exact match 1`] = `
+[
+  {
+    "data": {
+      "dispatchError": {
+        "Module": {
+          "error": "0x02000000",
+          "index": 30,
+        },
+      },
+      "dispatchInfo": {
+        "class": "Normal",
+        "paysFee": "Yes",
+        "weight": {
+          "proofSize": "(rounded 10000)",
+          "refTime": "(rounded 600000000)",
         },
       },
     },
-    "method": "ProxyExecuted",
-    "section": "proxy",
+    "method": "ExtrinsicFailed",
+    "section": "system",
   },
 ]
 `;
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet balances, call burn 1`] = `
 [
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet bounties, call propose_bounty 1`] = `
-[
-  {
-    "data": {
-      "index": "(redacted)",
-    },
-    "method": "BountyProposed",
-    "section": "bounties",
-  },
   {
     "data": {
       "result": "Ok",
@@ -613,15 +730,15 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet nomination_pools, call chill 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet proxy, call reject_announcement 1`] = `
 [
   {
     "data": {
       "result": {
         "Err": {
           "Module": {
-            "error": "0x0b000000",
-            "index": 41,
+            "error": "0x01000000",
+            "index": 30,
           },
         },
       },
@@ -632,7 +749,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet proxy, call reject_announcement 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet proxy, call reject_announcement 2`] = `
 [
   {
     "data": {
@@ -670,42 +787,18 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet referenda, call submit 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet proxy, call remove_proxy 1`] = `
 [
   {
     "data": {
-      "index": "(redacted)",
-      "proposal": {
-        "Inline": "0x00001468656c6c6f",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x01000000",
+            "index": 30,
+          },
+        },
       },
-      "track": 30,
-    },
-    "method": "Submitted",
-    "section": "referenda",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet staking, call bond 1`] = `
-[
-  {
-    "data": {
-      "amount": 1000000000000,
-      "stash": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Bonded",
-    "section": "staking",
-  },
-  {
-    "data": {
-      "result": "Ok",
     },
     "method": "ProxyExecuted",
     "section": "proxy",
@@ -722,20 +815,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -743,43 +822,30 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 [
   {
     "data": {
-      "hash_": "(hash)",
-      "sender": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Remarked",
-    "section": "system",
-  },
-  {
-    "data": {
       "result": "Ok",
     },
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
+      "result": {
+        "Err": "BadOrigin",
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -793,11 +859,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -810,59 +871,8 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet utility, call force_batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Any > events for proxy type Any, pallet vesting, call vested_transfer 1`] = `
-[
-  {
-    "data": {
-      "account": "Cdbxb6S9i8s4swqGZRWhcZyrcaXmTw1MkzLjbUiADjdSo2f",
-      "scheduleIndex": 0,
-    },
-    "method": "VestingCreated",
-    "section": "vesting",
-  },
-  {
-    "data": {
-      "account": "Cdbxb6S9i8s4swqGZRWhcZyrcaXmTw1MkzLjbUiADjdSo2f",
-    },
-    "method": "VestingCompleted",
-    "section": "vesting",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Auction > events for proxy type Auction, pallet auctions, call bid 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x03000000",
-            "index": 72,
-          },
-        },
-      },
     },
     "method": "ProxyExecuted",
     "section": "proxy",
@@ -879,25 +889,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
           "Module": {
             "error": "0x08000000",
             "index": 73,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Auction > events for proxy type Auction, pallet slots, call trigger_onboard 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x00000000",
-            "index": 71,
           },
         },
       },
@@ -949,11 +940,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -965,11 +951,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call batch_all 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -983,53 +964,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for CancelProxy > events for proxy type CancelProxy, pallet utility, call force_batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Governance > events for proxy type Governance, pallet bounties, call propose_bounty 1`] = `
-[
-  {
-    "data": {
-      "index": "(redacted)",
-    },
-    "method": "BountyProposed",
-    "section": "bounties",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Governance > events for proxy type Governance, pallet referenda, call submit 1`] = `
-[
-  {
-    "data": {
-      "index": "(redacted)",
-      "proposal": {
-        "Inline": "0x00001468656c6c6f",
-      },
-      "track": 30,
-    },
-    "method": "Submitted",
-    "section": "referenda",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1041,11 +975,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Governance > events for proxy type Governance, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1059,11 +988,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Governance > events for proxy type Governance, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1076,11 +1000,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Governance > events for proxy type Governance, pallet utility, call force_batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1090,32 +1009,8 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NominationPools > events for proxy type NominationPools, pallet nomination_pools, call chill 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x0b000000",
-            "index": 41,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NominationPools > events for proxy type NominationPools, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1129,11 +1024,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NominationPools > events for proxy type NominationPools, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1145,49 +1035,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NominationPools > events for proxy type NominationPools, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet auctions, call bid 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x03000000",
-            "index": 72,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet bounties, call propose_bounty 1`] = `
-[
-  {
-    "data": {
-      "index": "(redacted)",
-    },
-    "method": "BountyProposed",
-    "section": "bounties",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1207,25 +1054,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
           "Module": {
             "error": "0x00000000",
             "index": 31,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet nomination_pools, call chill 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x0b000000",
-            "index": 41,
           },
         },
       },
@@ -1274,49 +1102,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet referenda, call submit 1`] = `
-[
-  {
-    "data": {
-      "index": "(redacted)",
-      "proposal": {
-        "Inline": "0x00001468656c6c6f",
-      },
-      "track": 30,
-    },
-    "method": "Submitted",
-    "section": "referenda",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet staking, call bond 1`] = `
-[
-  {
-    "data": {
-      "amount": 1000000000000,
-      "stash": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Bonded",
-    "section": "staking",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet system, call remark 1`] = `
 [
   {
@@ -1326,20 +1111,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -1347,43 +1118,16 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 [
   {
     "data": {
-      "hash_": "(hash)",
-      "sender": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Remarked",
-    "section": "system",
-  },
-  {
-    "data": {
       "result": "Ok",
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1397,11 +1141,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1413,11 +1152,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for NonTransfer > events for proxy type NonTransfer, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1450,11 +1184,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1467,11 +1196,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet utility, call batch_all 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1483,31 +1207,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet utility, call force_batch 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Society > events for proxy type Society, pallet society, call bid 1`] = `
-[
-  {
-    "data": {
-      "candidateId": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-      "offer": 1000000000000,
-    },
-    "method": "Bid",
-    "section": "society",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1527,105 +1226,11 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Spokesperson > events for proxy type Spokesperson, pallet system, call remark_with_event 1`] = `
 [
-  {
-    "data": {
-      "hash_": "(hash)",
-      "sender": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Remarked",
-    "section": "system",
-  },
-  {
-    "data": {
-      "result": "Ok",
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet fast_unstake, call register_fast_unstake 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x00000000",
-            "index": 42,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet nomination_pools, call chill 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x0b000000",
-            "index": 41,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet staking, call bond 1`] = `
-[
-  {
-    "data": {
-      "amount": 1000000000000,
-      "stash": "D8ew585BL5H1ALhn4kmJoxhgqcgKDZLPc6xunJNv4mmrBns",
-    },
-    "method": "Bonded",
-    "section": "staking",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1639,11 +1244,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet utility, call batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
     },
@@ -1655,11 +1255,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet utility, call batch_all 1`] = `
 [
-  {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
   {
     "data": {
       "result": "Ok",
@@ -1673,13 +1268,141 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for allowed proxy calls > allowed proxy calls for Staking > events for proxy type Staking, pallet utility, call force_batch 1`] = `
 [
   {
-    "data": {},
-    "method": "BatchCompleted",
-    "section": "utility",
-  },
-  {
     "data": {
       "result": "Ok",
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet auctions, call bid 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet bounties, call propose_bounty 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet nomination_pools, call chill 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet referenda, call submit 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet staking, call bond 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Any > events for proxy type Any, pallet vesting, call vested_transfer 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Auction > events for proxy type Auction, pallet auctions, call bid 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
     },
     "method": "ProxyExecuted",
     "section": "proxy",
@@ -1714,7 +1437,26 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Auction > events for proxy type Auction, pallet slots, call trigger_onboard 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
           },
         },
       },
@@ -1744,39 +1486,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Auction > events for proxy type Auction, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Auction > events for proxy type Auction, pallet system, call remark 1`] = `
 [
   {
@@ -1792,20 +1501,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1826,19 +1521,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Auction > events for proxy type Auction, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -1900,39 +1600,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call remark 1`] = `
 [
   {
@@ -1948,20 +1615,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -1982,24 +1635,124 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for CancelProxy > events for proxy type CancelProxy, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
 
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet balances, call burn 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet bounties, call propose_bounty 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet multisig, call as_multi 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet proxy, call reject_announcement 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet proxy, call remove_announcement 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet referenda, call submit 1`] = `
 [
   {
     "data": {
@@ -2037,39 +1790,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet system, call remark 1`] = `
 [
   {
@@ -2085,20 +1805,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2119,19 +1825,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Governance > events for proxy type Governance, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2174,6 +1885,25 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NominationPools > events for proxy type NominationPools, pallet nomination_pools, call chill 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NominationPools > events for proxy type NominationPools, pallet referenda, call submit 1`] = `
 [
   {
@@ -2182,7 +1912,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
         "Err": {
           "Module": {
             "error": "0x05000000",
-            "index": "(redacted)",
+            "index": 0,
           },
         },
       },
@@ -2212,39 +1942,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NominationPools > events for proxy type NominationPools, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NominationPools > events for proxy type NominationPools, pallet system, call remark 1`] = `
 [
   {
@@ -2260,20 +1957,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2294,19 +1977,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NominationPools > events for proxy type NominationPools, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2330,7 +2018,102 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet auctions, call bid 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet balances, call burn 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet bounties, call propose_bounty 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet nomination_pools, call chill 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet referenda, call submit 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for NonTransfer > events for proxy type NonTransfer, pallet staking, call bond 1`] = `
 [
   {
     "data": {
@@ -2425,39 +2208,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet system, call apply_authorized_upgrade 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": 0,
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
-]
-`;
-
 exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet system, call remark 1`] = `
 [
   {
@@ -2473,20 +2223,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2507,19 +2243,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for ParaRegistration > events for proxy type ParaRegistration, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2543,7 +2284,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Society > events for proxy type Society, pallet system, call apply_authorized_upgrade 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Society > events for proxy type Society, pallet society, call bid 1`] = `
 [
   {
     "data": {
@@ -2558,20 +2299,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2592,20 +2319,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -2625,19 +2338,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Society > events for proxy type Society, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2718,7 +2436,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Spokesperson > events for proxy type Spokesperson, pallet system, call apply_authorized_upgrade 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Spokesperson > events for proxy type Spokesperson, pallet system, call set_heap_pages 1`] = `
 [
   {
     "data": {
@@ -2733,20 +2451,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     },
     "method": "ProxyExecuted",
     "section": "proxy",
-  },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
   },
 ]
 `;
@@ -2827,26 +2531,7 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
 ]
 `;
 
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet referenda, call submit 1`] = `
-[
-  {
-    "data": {
-      "result": {
-        "Err": {
-          "Module": {
-            "error": "0x05000000",
-            "index": "(redacted)",
-          },
-        },
-      },
-    },
-    "method": "ProxyExecuted",
-    "section": "proxy",
-  },
-]
-`;
-
-exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet system, call apply_authorized_upgrade 1`] = `
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet fast_unstake, call register_fast_unstake 1`] = `
 [
   {
     "data": {
@@ -2862,19 +2547,62 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet nomination_pools, call chill 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Operational",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 100000000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet referenda, call submit 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
+  },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet staking, call bond 1`] = `
+[
+  {
+    "data": {
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
+        },
+      },
+    },
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;
@@ -2895,20 +2623,6 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
-  {
-    "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
-        },
-      },
-    },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
-  },
 ]
 `;
 
@@ -2928,19 +2642,24 @@ exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for
     "method": "ProxyExecuted",
     "section": "proxy",
   },
+]
+`;
+
+exports[`Kusama Proxy full tests (includes call filtering) > filtering tests for forbidden proxy calls > forbidden proxy calls for Staking > events for proxy type Staking, pallet system, call set_heap_pages 1`] = `
+[
   {
     "data": {
-      "dispatchInfo": {
-        "class": "Normal",
-        "paysFee": "Yes",
-        "weight": {
-          "proofSize": "(rounded 10000)",
-          "refTime": "(rounded 700000000)",
+      "result": {
+        "Err": {
+          "Module": {
+            "error": "0x05000000",
+            "index": 0,
+          },
         },
       },
     },
-    "method": "ExtrinsicSuccess",
-    "section": "system",
+    "method": "ProxyExecuted",
+    "section": "proxy",
   },
 ]
 `;

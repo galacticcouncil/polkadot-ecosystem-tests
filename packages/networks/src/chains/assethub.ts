@@ -1,4 +1,7 @@
+import { standardFeeExtractor } from '@e2e-test/shared'
+
 import { defineChain } from '../defineChain.js'
+import endpoints from '../pet-chain-endpoints.json' with { type: 'json' }
 import { defaultAccounts, defaultAccountsSr25519, testAccounts } from '../testAccounts.js'
 
 const custom = {
@@ -65,16 +68,32 @@ const getInitStorages = (config: typeof custom.assetHubPolkadot | typeof custom.
 
 export const assetHubPolkadot = defineChain({
   name: 'assetHubPolkadot',
-  endpoint: 'wss://polkadot-asset-hub-rpc.polkadot.io',
+  endpoint: endpoints.assetHubPolkadot,
   paraId: 1000,
+  networkGroup: 'polkadot',
   custom: custom.assetHubPolkadot,
   initStorages: getInitStorages(custom.assetHubPolkadot),
+  properties: {
+    addressEncoding: 0,
+    proxyBlockProvider: 'NonLocal',
+    schedulerBlockProvider: 'NonLocal',
+    asyncBacking: 'Enabled',
+    feeExtractor: standardFeeExtractor,
+  },
 })
 
 export const assetHubKusama = defineChain({
   name: 'assetHubKusama',
-  endpoint: 'wss://sys.ibp.network/asset-hub-kusama',
+  endpoint: endpoints.assetHubKusama,
   paraId: 1000,
+  networkGroup: 'kusama',
   custom: custom.assetHubKusama,
   initStorages: getInitStorages(custom.assetHubKusama),
+  properties: {
+    addressEncoding: 2,
+    proxyBlockProvider: 'NonLocal',
+    schedulerBlockProvider: 'NonLocal',
+    asyncBacking: 'Enabled',
+    feeExtractor: standardFeeExtractor,
+  },
 })

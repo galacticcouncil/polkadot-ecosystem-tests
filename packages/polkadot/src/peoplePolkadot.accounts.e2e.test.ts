@@ -3,12 +3,10 @@ import { accountsE2ETests, createAccountsConfig, registerTestTree, type TestConf
 
 const testCfg: TestConfig = {
   testSuiteName: 'Polkadot People Chain Accounts',
-  addressEncoding: 0,
-  blockProvider: 'Local',
-  chainEd: 'Normal',
 }
 
 const accountsCfg = createAccountsConfig({
+  expectation: 'success',
   relayChain: polkadot,
 })
 
