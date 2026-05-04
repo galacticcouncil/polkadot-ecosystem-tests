@@ -124,7 +124,20 @@ async function performUpgradeViaReferenda(hydraDXClient, upgradePath) {
   console.log('Enacting authorized upgrade...')
   const enact = hydraDXClient.api.tx.system.applyAuthorizedUpgrade(`0x${code}`)
   await sendTransaction(enact.signAsync(alice))
+  // First post-upgrade block applies the new code; metadata is then refreshed.
   await hydraDXClient.chain.newBlock()
+
+  // Disable the parachain-system relay-parent descendants check so chopsticks
+  // can keep producing blocks against runtimes that enabled slot-based
+  // collators / strict async-backing descendants (added in the gigahdx PR).
+  // The storage only exists in the post-upgrade runtime, hence the post-upgrade
+  // dev.setStorage call rather than initStorages.
+  try {
+    await hydraDXClient.dev.setStorage({ Parameters: { RelayParentOffsetOverride: true } })
+  } catch (err) {
+    console.log('RelayParentOffsetOverride not present in this runtime — skipping')
+  }
+
   await hydraDXClient.chain.newBlock()
   await hydraDXClient.chain.newBlock()
 
