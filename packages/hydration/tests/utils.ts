@@ -2,7 +2,7 @@ import { sendTransaction } from '@acala-network/chopsticks-testing'
 
 import { defaultAccounts } from '@e2e-test/networks'
 
-import { blake2AsHex } from '@polkadot/util-crypto'
+import { blake2AsHex, xxhashAsHex } from '@polkadot/util-crypto'
 
 import * as fs from 'node:fs'
 
@@ -130,13 +130,13 @@ async function performUpgradeViaReferenda(hydraDXClient, upgradePath) {
   // Disable the parachain-system relay-parent descendants check so chopsticks
   // can keep producing blocks against runtimes that enabled slot-based
   // collators / strict async-backing descendants (added in the gigahdx PR).
-  // The storage only exists in the post-upgrade runtime, hence the post-upgrade
-  // dev.setStorage call rather than initStorages.
-  try {
-    await hydraDXClient.dev.setStorage({ Parameters: { RelayParentOffsetOverride: true } })
-  } catch (err) {
-    console.log('RelayParentOffsetOverride not present in this runtime — skipping')
-  }
+  // We write the raw storage key directly because, right after the upgrade
+  // block, chopsticks/PJS metadata may still reflect the old runtime — looking
+  // up `Parameters.RelayParentOffsetOverride` via metadata would error.
+  // For runtimes without this storage (live mainnet) the write is harmless.
+  const relayParentOffsetOverrideKey =
+    xxhashAsHex('Parameters', 128) + xxhashAsHex('RelayParentOffsetOverride', 128).slice(2)
+  await hydraDXClient.dev.setStorage([[relayParentOffsetOverrideKey, '0x01']])
 
   await hydraDXClient.chain.newBlock()
   await hydraDXClient.chain.newBlock()
